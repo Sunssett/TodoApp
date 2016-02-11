@@ -1,13 +1,22 @@
-<ion-view title="Promemoria">
-    <ion-nav-buttons side="right">
-        <button class="right button button-icon icon ion-plus" ng-click="insert()"></button>
-    </ion-nav-buttons>
+<ion-header-bar class="bar-stable" align-title="center">
+    <h1 class="title">Promemoria</h1>
+</ion-header-bar>
+<ion-view view-title="List">
     <ion-content>
-         <ion-list show-delete="false" can-swipe="true">
-            <ion-item ng-repeat="item in items">
-                {{item.todo_list_item_name}}
-            </ion-item>
-
-        </ion-list>
+        <ion-item 
+            ng-click="showConfirm($index,todo)"
+            collection-repeat="todo in todos">
+            {{todo.text}}
+        </ion-item>
+        <ion-item ng-hide="todos.length">
+            <strong>Evviva, non hai nulla da fare!</strong>
+            <br/>
+            <small>Clicca su aggiungi per inserire dei promemoria</small>
+            <br/>
+            <small>Oppure torna a non far niente!</small>
+        </ion-item>
     </ion-content>
 </ion-view>
+<ion-footer-bar class="bar-positive" align-title="center">
+    <a ui-sref="detail"><h1 class="title">Aggiungi</h1></a>
+</ion-footer-bar>
