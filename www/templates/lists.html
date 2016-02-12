@@ -1,5 +1,5 @@
-<ion-view title="Liste">
-    <ion-nav-buttons side="right">
+<ion-view title="Liste" align-title=center>
+<ion-nav-buttons side="right">
         <button class="right button button-icon icon ion-plus" ng-click="insert()"></button>
     </ion-nav-buttons>
     <ion-content>
@@ -10,5 +10,11 @@
                  
             </ion-item>
         </ion-list>
+
+   <ion-item menu-close href="#/categories">
+   <button class="button icon-left ion-home">
+          Torna alla tab principale
+      </button>
+        </ion-item>
     </ion-content>
 </ion-view>

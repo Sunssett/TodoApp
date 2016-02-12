@@ -1,9 +1,9 @@
 <ion-header-bar class="bar-stable" align-title="center">
     <h1 class="title">Promemoria</h1>
 </ion-header-bar>
-<ion-view view-title="List">
-    <ion-content>
-        <ion-item 
+<ion-view view-title="Promemoria">
+    <ion-content if({{todo.text}}==0)>
+        <ion-item
             ng-click="showConfirm($index,todo)"
             collection-repeat="todo in todos">
             {{todo.text}}
@@ -15,6 +15,7 @@
             <br/>
             <small>Oppure torna a non far niente!</small>
         </ion-item>
+    
     </ion-content>
 </ion-view>
 <ion-footer-bar class="bar-positive" align-title="center">
