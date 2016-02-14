@@ -142,7 +142,7 @@ todoApp.controller("ListsController", function($scope, $ionicPlatform, $ionicPop
                 $cordovaSQLite.execute(db, query, [$stateParams.categoryId, result]).then(function(res) {
                     $scope.lists.push({id: res.insertId, category_id: $stateParams.categoryId, todo_list_name: result});
                 }, function (err) {
-                    console.error(err);
+                    console.error();
                 });
             } else {
                 console.log("Action not completed");
@@ -190,7 +190,7 @@ todoApp.controller("ItemsController", function($scope, $ionicPlatform, $ionicPop
                 $cordovaSQLite.execute(db, query, [$stateParams.listId, result]).then(function(res) {
                     $scope.items.push({id: res.insertId, todo_list_id: $stateParams.listId, todo_list_item_name: result});
                 }, function (err) {
-                    console.error(err);
+                    console.error();
                 });
             } else {
                 console.log("Azione non portata a termine");
