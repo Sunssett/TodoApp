@@ -1,20 +1,18 @@
 <ion-view title="Liste" align-title=center>
-<ion-nav-buttons side="right">
-        <button class="right button button-icon icon ion-plus" ng-click="insert()"></button>
-    </ion-nav-buttons>
     <ion-content>
         <ion-list show-delete="false" can-swipe="true">
             <ion-item ng-repeat="list in lists" href="#/items/{{list.id}}">
                 {{list.todo_list_name}}
                  <ion-option-button class="button-assertive icon ion-trash-a" ng-click="delete(list)"></ion-option-button>
-                 
-            </ion-item>
-        </ion-list>
+                 </ion-list>
 
-   <ion-item menu-close href="#/categories">
-   <button class="button icon-left ion-home">
-          Torna alla tab principale
-      </button>
-        </ion-item>
+                            <ion-item menu-close href="#/categories">
+  <button class="button button-clear button-positive">
+  Torna alla tab principale
+</button>
     </ion-content>
+
+    <ion-footer-bar class="bar-calm" align-title="center" ng-click="insert()">
+    <a ui-sref="detail"><h1 class="title">Aggiungi</h1></a>
+</ion-footer-bar>
 </ion-view>
