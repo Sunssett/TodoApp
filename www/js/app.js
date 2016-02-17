@@ -53,7 +53,7 @@ todoApp.controller("ConfigController", function($scope, $ionicPlatform, $ionicLo
             $scope.insert = function() {
         $ionicPopup.prompt({
             title: 'Inserisci Categoria',
-            inputType: 'inserisci testo'
+            inputType: 'inseris'
         })
         .then(function(result) {
             if(result !== undefined) {
@@ -130,6 +130,32 @@ todoApp.controller("ListsController", function($scope, $ionicPlatform, $ionicPop
             console.error(err);
         });
     });
+ $scope.insert = function() {
+        $ionicPopup.prompt({
+            title: 'Inserisci categoria',
+            inputType: 'inserisci testo'
+        })
+        .then(function(result) {
+            if(result !== undefined) {
+                var query = "INSERT INTO tblTodoCategory (category_id, todo_Category) VALUES (?,?)";
+                $cordovaSQLite.execute(db, query, [$stateParams.categoryId, result]).then(function(res) {
+                    $scope.lists.push({id: res.insertId, category_id: $stateParams.categoryId, todo_Category: result});
+                }, function (err) {
+                    console.error();
+                });
+            } else {
+                console.log("Action not completed");
+            }
+        });
+    }
+    $scope.delete = function(category) {
+    var query = "DELETE FROM tblTodoCategory where id = ?";
+        $cordovaSQLite.execute(db,query, [category_id]).then(function(res) {
+            $scope.lists.splice($scope.lists.indexOf(item), 1);
+        });
+    }, function (err) {
+        console.error(err);
+}
  
     $scope.insert = function() {
         $ionicPopup.prompt({
